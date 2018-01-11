@@ -172,7 +172,7 @@ $(function () {
  * */
 
     //  模拟数据
-/*var selectedArea = '';
+var selectedArea = '';
 var dataMap = null;
 var dataMapSD = [
     {name: "莒县", coord: [118.851051, 35.586736], level: 0},
@@ -222,7 +222,7 @@ function setMapData(dataMap, n) {
 //  实例
 var map = new window.jusfounDisasterMap.DisasterMap();
 
-/!*
+/*
      * 初始化
      *   @param  dom 初始化所需dom元素
      *   @param  disaster 图标对应名称  和 icon 顺序保持一致
@@ -232,7 +232,7 @@ var map = new window.jusfounDisasterMap.DisasterMap();
      *   @param  iconSize 图标大小 默认是[20,20] 表示 宽和高
      *   @param  jsonUrl json文件以disasterMap.min.js为源的相对路径
      *   @param  tooltipCallBack 提示框的回调 可以定义提示框内容  默认显示内容和示例一样
-     * *!/
+     * */
 map.init({
     dom: $('#crop-warming'),
     disaster: ['低温冻害', '干旱灾害', '连阴雨灾害'],
@@ -249,7 +249,7 @@ map.init({
     }
 });
 
-/!*
+/*
  * 渲染数据
  *   @param  mapType 渲染省份的名称 中文
  *   @param  data 数据
@@ -260,7 +260,7 @@ map.init({
  *             coord : '[111,222]' --- 地区坐标
  *           }
  *       ]
- * *!/
+ * */
 //初始化显示的区域
 setMapData(dataMapSX, '陕西');
 
@@ -302,7 +302,7 @@ $(".warming .weather-factor").on('click', "li", function () {
     };
 
     setMapData(dataMap, selectedArea);
-});*/
+});
 
 //resize 方法已存在
 /**

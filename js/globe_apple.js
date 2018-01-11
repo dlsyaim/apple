@@ -12,7 +12,6 @@ $(function () {
     };
 
     // 地图描述
-/*
     function initMapDesc(data) {
         var common = {
             status: getDanwei(".space-distributed"),
@@ -208,123 +207,9 @@ $(function () {
             });
         });
     });
-*/
 
 
-function initMap(){
-    var chartMap = echarts.init(document.getElementById('space-distributed'));
-    var nameMap = {
-        'Canada': '加拿大'
-    };
-    function randomData() {
-        return Math.round(Math.random() * 1000);
-    }
-    var Map_option = {
-        tooltip: {
-            trigger: 'item',
-            axisPointer: {
-                type: 'shadow',
-                shadowStyle: {
-                    color: 'rgba(0,46, 115, 0.3)'
-                }
-            },
-            formatter: function(params) {
-                console.log(params)
-                var str = '2016年' + params.data.name + "<br>" + "种植面积： " + 3000 + "万吨";
-                return str
-            },
-            textStyle: {
-                align: 'left',
-                //color: '#5cc1ff',
-                color: '#fff',
-                fontSize: '16'
-            },
-            backgroundColor: 'rgba(15, 52, 135, 0.5)',
-            borderWidth: '1',
-            borderColor: '#5cc1ff',
-            extraCssText: 'box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);'
 
-        },
-        legend: {
-            show: false,
-            orient: 'vertical',
-            left: 'left',
-            data: ['']
-        },
-        visualMap: {
-            type: 'piecewise',
-            min: 0,
-            max: 2500,
-            splitNumber: 6,
-            pieces: [
-                { min: 1500, color: '#6A6AFF' }, // 不指定 max，表示 max 为无限大（Infinity）。
-                { min: 900, max: 1500, color: '#6A6AFF' },
-                { min: 310, max: 1000, color:'#9393FF' },
-                { min: 200, max: 300, color:'#B9B9FF' },
-                { min: 10, max: 200, label: '10-20', color: '#DDDDFF' },
-                { max: 5, color: '#FBFBFF' } // 不指定 min，表示 min 为无限大（-Infinity）。
-            ],
-            left: 'left',
-            top: 'bottom',
-            text: ['高', '低'], // 文本，默认为数值文本
-            textStyle: {
-                color: '#fff'
-            },
-            calculable: true
-        },
-        toolbox: {
-            show: false,
-            orient: 'vertical',
-            left: 'right',
-            top: 'center',
-            feature: {
-                dataView: { readOnly: false },
-                restore: {},
-                saveAsImage: {}
-            }
-        },
-        series: [{
-            name: '',
-            type: 'map',
-            roam: true,
-            itemStyle: {
-                normal: {
-                    // areaColor: 'rgba(72, 118, 255,0.9)'
-                },
-                emphasis: {
-                    areaColor: '#FDDD31'
-                }
-            },
-            mapType: 'world',
-            label: {
-                normal: {
-                    show: false
-                },
-                emphasis: {
-                    show: true,
-                    formatter: function(d) {
-                        return nameMap[d.name]
-                    }
-                }
-            },
-            data: [
-                {name: 'China',value: randomData() },
-                {name: 'Afghanistan',value: randomData() },
-                {name: 'Benin',value: randomData() },
-                {name: 'Albania',value: randomData() },
-                {name: 'Bangladesh',value: randomData() },
-                {name: 'Belarus',value: randomData() },
-                {name: 'Switzerland',value: randomData() },
-                {name: 'Colombia',value: randomData() },
-                {name: 'Algeria',value: randomData() }
-            ]
-        }]
-    };
-    chartMap.setOption(Map_option);
-
-}
-
-    initMap();
     /**
      * ********************************************
      * ***********历史演变处 ajax交互*********
@@ -353,7 +238,9 @@ function initMap(){
 
         var obj = [],
             legend = [];
+        console.log(data)
         for (key in data) {
+            console.log(key)
             obj.push({
                 name: key + newDanwei,
                 type: 'bar',
@@ -569,6 +456,11 @@ function initMap(){
             default:
         }
         var descObj = {};
+        // descObj.desYear = historyObj.time_while[0] + "-" + historyObj.time_while[historyObj.time_while.length - 1];
+        // descObj.desLastYear = historyObj.time_while[historyObj.time_while.length - 1];
+        // descObj.descRate = data[historyObj.scope].average;
+        // descObj.descYield = data[historyObj.scope].sumData;
+        // descObj.danWei = newDanwei;
 
         // 时间
         var timeYear = historyObj.time_while.split(',');
@@ -875,7 +767,7 @@ function initMap(){
             name: '',
             type: 'line',
             smooth: true,
-            data: [12,15,11,13,16,19,17,11,18,17]
+            data: []
         }],
         "dataZoom": [{
             "show": true,

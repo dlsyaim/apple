@@ -287,7 +287,7 @@ $(function() {
             }, {
                 name: '辅助颜色',
                 type: 'map',
-                zoom: 1.25,
+                // zoom: 1.25,
                 mapType: 'china',
                 markPoint: {
                     symbol: 'circle'
@@ -353,7 +353,7 @@ $(function() {
         },
         geo: {
             map: 'china',
-            zoom: 1.25,
+            // zoom: 1.25,
             // label: {
             //     emphasis: {
             //         show: false

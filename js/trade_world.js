@@ -44,7 +44,6 @@ $(function() {
      * ***********全球贸易 贸易分布*********
      * ********************************************
      */
-/*
     var worldData = [
         {
             name: "中国",
@@ -75,9 +74,9 @@ $(function() {
             value: '397'
         }];
 
-    /!**
+    /**
      * 渲染 世界地图函数
-     *!/
+     */
     var chart = new JusfounD3Charts.mapSelect();
     chart.init({
         dom: $(".map")[0],
@@ -122,26 +121,26 @@ $(function() {
         });
     }
 
-    /!**
+    /**
      * 第一次初始化页面
      * 需要在获取时间后进行初始化
-     *!/
+     */
     getTradeDistributeData();
 
-    /!**
+    /**
      * 贸易分布 ajax 交互
      * 出口 进口
      * 根据 出口 进口 单选按钮 渲染 echarts 图表
-     *!/
+     */
     $(".trade-distribute .pub-radio").on('click', "li", function() {
         getTradeDistributeData();
     });
 
-    /!**
+    /**
      * 贸易分布 ajax 交互
      * 滑动时间轴 两个echarts图表的联动
      * @type {scrollBar}
-     *!/
+     */
     var tradeDistributeTime = new scrollBar({
         dom: document.getElementById('trade-distributed-time'),
         height: 12,
@@ -163,7 +162,6 @@ $(function() {
         console.log(time);
         getTradeDistributeData();
     })
-*/
 
     /**
      * ********************************************
@@ -1183,7 +1181,7 @@ $(function() {
      * 贸易流向——全国流向 右侧echarts
      * 渲染函数
      */
-    /*var frontTen = echarts.init(document.getElementById('front-ten'));
+    var frontTen = echarts.init(document.getElementById('front-ten'));
     function initFrontTenEchart(data, tradeFlowObj) {
         var frontTenOption = {
             // backgroundColor: '#1B2971',
@@ -1272,6 +1270,6 @@ $(function() {
         initFrontTenEchart(0, )
     }
 
-    getFlowData();*/
+    getFlowData();
 
 });

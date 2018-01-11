@@ -849,7 +849,7 @@ input[type=checkbox]:checked + i.checkbox:before, input[type=radio]:checked + i.
 }
 
 .pop-time .time-des {
-    width: 100px;
+    width: 50px;
     cursor: pointer;
 }
 
